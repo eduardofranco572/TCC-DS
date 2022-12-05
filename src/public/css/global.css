@@ -1,0 +1,100 @@
+:root{
+    --Azul-do-fundo-menu:#21325b;
+    --Background:#fff ;
+    --Cor-titulos:#1e2022;
+    --Cor-subtitulos:#677788;
+    --Cor-botão-compra:#377dff;
+    --Cor-links-menu:rgba(255,255,255,.55);
+    --font-family: Inter,sans-serif;
+    --font-size: 1rem;
+    --h1: 2.5rem;
+    --verde:#1cc88a;
+    --vermelho: #ff6384;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-family);
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+
+h1{
+    font-size: var(--h1);
+    text-align: center!important;
+    font-family: var(--font-family);
+    margin: 0.5rem 0;
+}
+
+p{
+    font-size: var(--font-size);
+    text-align: center!important;
+    font-family: var(--font-family);
+    color: var(--Cor-subtitulos);
+}
+
+.input-button-Periodo{
+    width: 2.8125em;
+    height: 1.8125em;
+    border-width: 0;
+    background-color: #e7eaf3;
+    margin-top: -.25em;
+    margin-right: .75rem;
+
+}
+
+.button-Periodo[type="checkbox"]{
+    position: relative;
+    width: 49px;
+    height: 29px;
+    -webkit-appearance: none;
+    background: #e7eaf3;
+    outline: none;
+    border-radius: 15px;
+    box-shadow: inset 0 0 5px rgba(0,0,0,.2);
+
+}
+.button-Periodo:checked[type="checkbox"]{
+    background: rgb(0, 123, 255);
+}
+.button-Periodo[type="checkbox"]:before{
+    content: "";
+    position: absolute;
+    margin-left: 0.3rem;
+    margin-top: 0.2rem;
+    width: 23px;
+    height: 23px;
+    border-radius: 20px;
+    top: 0;
+    left: 0;
+    background: white;
+    transition: 0.5s;
+    
+}
+.button-Periodo:checked[type="checkbox"]:before{
+    left: 16px;
+}
+
+.btn-muda-preco {
+    margin-top: 4rem;
+    gap: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+/* carrossel */
+#img{
+    width: 6rem;
+    height: 4rem;
+}
+

@@ -1,0 +1,56 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="css/global.css" rel="stylesheet" type="text/css" />
+  <link href="css/index.css" rel="stylesheet" type="text/css">
+  <link href="css/cabecalho.css" rel="stylesheet" type="text/css" />
+  <link href="css/cards.css" rel="stylesheet" type="text/css">
+  <link href="/css/rodape.css" rel="stylesheet" type="text/css" />
+  <link href="css/login.css" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+    integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+    crossorigin="" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+  <script src="js/jquery.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <title>Login</title>
+</head>
+
+<body>
+  <%- include('./partials/cabecalho.ejs') %>
+    <div class="login">
+      <div class="formulario">
+        <div class="formulario">
+          <div class="titulo">
+            <h1>Bem vindo de volta</h1>
+            <p>Faça login para gerenciar sua conta.</p>
+          </div>
+          <div class="input-formulario">
+            <label for="email">EMAIL</label>
+            <input type="text" name="email" id="email">
+          </div>
+          <div class="input-formulario-2">
+            <div class="divsenha">
+              <label for="senha">SENHA</label>
+              <input type="password" name="senha" id="senha">
+              <img src="/img/icons/olhos-fechados.svg" width="24px" height="16px" class="vizualizador olho-aberto"
+                id="olhos"></img>
+            </div>
+          </div>
+          <button class="btn-plano btn-effect-meio pagamento" id="btn-entrar">ENTRAR</button>
+        </div>
+      </div>
+      <img class="img-login" src="/img/img-login.png">
+    </div>
+
+    <%- include('./partials/rodape.ejs') %>
+      <script src="/js/jquery.js"></script>
+      <script src="/js/login.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="css/global.css" rel="stylesheet" type="text/css" />
+  <link href="css/index.css" rel="stylesheet" type="text/css">
+  <link href="css/cabecalho.css" rel="stylesheet" type="text/css" />
+  <link href="css/cards.css" rel="stylesheet" type="text/css">
+  <link href="/css/rodape.css" rel="stylesheet" type="text/css" />
+  <link href="css/cadastro.css" rel="stylesheet" type="text/css">
+  <script src="js/jquery.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"
+    integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/StephanWagner/jBox@v1.3.3/dist/jBox.all.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/gh/StephanWagner/jBox@v1.3.3/dist/jBox.all.min.css" rel="stylesheet">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"
+    integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <title>Cadastro</title>
+</head>
+
+<body>
+  <%- include('./partials/cabecalho.ejs') %>
+    <div class="cadastro">
+      <div class="formulario">
+        <%- include('./partials/barra-progresso.ejs') %>
+
+          <div class="formulario" id="formulario_usuario">
+            <div class="input-formulario">
+              <div class="label">
+                <label for="nome">NOME COMPLETO</label>
+                <i class='bx bx-info-circle tooltip-nome'></i>
+              </div>
+              <input type="text" name="nome" id="nome" class="formulario_usuario" required onblur="validaNome(this);">
+            </div>
+            <div class="input-formulario">
+              <label for="email">EMAIL</label>
+              <input type="text" name="email" id="email" class="formulario_usuario" required
+                onblur="validaEmail(this);">
+            </div>
+            <div class="input-formulario div-olhos">
+              <div class="label">
+                <label for="senha">SENHA</label>
+                <i class='bx bx-info-circle tooltip-senha'></i>
+              </div>
+              <input type="password" name="senha" id="senha" class="formulario_usuario" required
+                onblur="validaSenha(this);">
+              <img src="/img/icons/olhos-fechados.svg" width="24px" height="16px"
+                class="vizualizador olho-aberto olhos"></img>
+            </div>
+            <div class="input-formulario div-olhos">
+              <div class="label">
+                <label for="confirmasenha">CONFIRMAR SENHA</label>
+                <i class='bx bx-info-circle tooltip-senha'></i>
+              </div>
+              <input type="password" name="confirmasenha" id="confirmasenha" class="formulario_usuario" required
+                onblur="validaConfirmaSenha(this);">
+              <img src="/img/icons/olhos-fechados.svg" width="24px" height="16px"
+                class="vizualizador olho-aberto olhos"></img>
+            </div>
+            <div class="input-formulario-2">
+              <div class="campos">
+                <label for="cpf">CPF</label>
+                <input type="text" name="cpf" id="cpf" required onblur="validaCPF(this);" class="formulario_usuario">
+              </div>
+              <div class="campos">
+                <label for="tel">TELEFONE COM DDD</label>
+                <input type="text" name="tel" id="tel" required onblur="validaTel(this);" class="formulario_usuario">
+              </div>
+              <input type="hidden" name="validacao_formulario_usuario" id="validacao_formulario_usuario">
+            </div>
+            <div class="info">
+              <p>Ao preencher o formulário você permite que a salve <a href="#">suas informações.</a>
+              </p>
+            </div>
+            <button class="btn-plano btn-effect-meio pagamento" id="btn-usuario">IR PARA PAGAMENTO</button>
+          </div>
+          <div class="formulario" id="formulario_pagamento" style="display: none;">
+            <div class="input-formulario">
+              <label for="numCartao">NÚMERO DO CARTÃO</label>
+              <input type="text" name="numCartao" id="numCartao" required onblur="validaCartao(this);"
+                class="formulario_pagamento">
+            </div>
+            <div class="input-formulario">
+              <div class="label">
+                <label for="nomeCartao">NOME DO CARTÃO</label>
+                <i class='bx bx-info-circle tooltip-nome'></i>
+              </div>
+              <input type="text" name="nomeCartao" required onblur="validaNome(this);" class="formulario_pagamento">
+            </div>
+            <div class="input-formulario-2">
+              <div class="campos">
+                <label for="cvv">CVV</label>
+                <input type="text" name="cvv" maxlength="3" required onblur="validaCvv(this);"
+                  onkeyup="this.value=this.value.replace(/[^\d]/,'')" class="formulario_pagamento">
+              </div>
+              <div class="campos">
+                <label for="data">DATA DE EXPIRAÇÃO</label>
+                <input type="text" name="data" id="data" placeholder="MM/AAAA" required onblur="validaDataCartao(this);"
+                  class="formulario_pagamento">
+              </div>
+
+            </div>
+            <div class="input-formulario-2">
+              <div class="campos">
+                <label for="plano">PLANO</label>
+                <select name="plano" id="plano" class="mudaValor">
+                  <option value="0" disabled selected>Selecione um plano</option>
+                  <option value="basico">Básico</option>
+                  <option value="intermediario">Intermediário</option>
+                  <option value="ultra">Ultra</option>
+                </select>
+              </div>
+              <div class="campos">
+                <label for="formatoPlano">FORMATO</label>
+                <select name="formatoPlano" id="formatoPlano" class="mudaValor">
+                  <option value="0" disabled selected>Selecione um formato</option>
+                  <option value="Anual">Anual</option>
+                  <option value="Mensal">Mensal</option>
+                </select>
+              </div>
+            </div>
+            <div class="input-formulario-2">
+              <div class="campos">
+                <label for="valorPlano">Valor</label>
+                <input type="text" name="valorPlano" id="valorPlano" disabled>
+              </div>
+            </div>
+
+            <div class="info">
+              <p>Ao preencher o formulário você permite que a salve <a href="#">suas informações.</a>
+              </p>
+            </div>
+            <button class="btn-plano btn-effect-meio pagamento" id="btn-pagamento">FINALIZAR CADASTRO</button>
+          </div>
+      </div>
+
+      <img class="img-cadastro" src="/img/img-cadastro.png">
+    </div>
+    <%- include('./partials/rodape.ejs') %>
+      <script src="js/cadastro.js"></script>
+</body>
+
+</html>

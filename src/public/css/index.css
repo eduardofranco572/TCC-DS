@@ -1,0 +1,126 @@
+#map { 
+  height: 580px; 
+  border-radius: 0 0 18% 18%;
+  width: 100%;
+  z-index: -1;
+}
+
+.titulo-mapa {
+  bottom: 70%;
+  position: absolute;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.h1{
+  width: 50%;
+  background-color: rgba(255, 255, 255, 0); 
+  z-index: 1;
+  border: 1px solid rgba(255, 255, 255, .25);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  color: var(--Azul-do-fundo-menu);
+  text-transform: uppercase;
+  font-family: var(--font-family);
+}
+
+.leaflet-control-container{
+  display: none;
+}
+
+/* SOBRE */
+
+.sobre{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin:5rem 0;
+  padding: 0;
+  background-image: url("../img/mundo.png");
+  background-repeat: no-repeat;
+  background-size: 60%;
+  background-position: 100%;
+}
+
+.sobre-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.sobre-titulo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.sobre-titulo > h1 {
+  margin: 0;
+  padding: 0;
+}
+
+.sobre-paragrafo{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 50%;
+  gap: 1rem;
+}
+
+.sobre-paragrafo > p {
+  text-align: start !important;
+  font-size: 1.1rem;
+}
+
+.btn-comece-agora {
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--Background);
+  background-color: #377dff;
+  text-align: center;
+  vertical-align: middle;
+  border: 0.0625rem solid transparent;
+  padding: 0.6125rem 1rem;
+  font-size: 1rem;
+  border-radius: 0.3125rem;
+  transition: all .2s ease-in-out;
+  width: 18%;
+}
+
+.sobre-imgs {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: flex-end;
+
+}
+
+.sobre-imagem-1 {
+  width:  17rem;
+  border-radius: 160px;
+  position: relative;
+  bottom: 4rem;
+}
+
+.sobre-imagem-2 {
+  width: 13rem;
+  border-radius: 160px;
+  position: relative;
+  right: 15rem;
+}
+
+.sobre-imagem-3 {
+  width: 10rem;
+  border-radius: 160px;
+  position: relative;
+  top: 5rem;
+  right: 3rem;
+}

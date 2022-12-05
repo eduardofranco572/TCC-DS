@@ -1,0 +1,104 @@
+.div-carrossel {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin: 3rem 0;
+}
+
+h1 {
+    text-align: center;
+}
+
+.carrosel{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80rem;
+}
+                    
+.swiper-slide img {
+    display: block;
+    object-fit: cover;
+}
+
+.titulos{
+    width: 100%;
+    padding: 0.5rem 0rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    margin-top: -5.9rem;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.nomedaem{
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
+}
+  
+.img1 {
+    border-radius: 12px;
+}
+
+.card1{
+    width: 17rem;
+    height: 10rem;
+   
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.swiper {
+    width: 90%;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+.material-symbols-outlined{
+    color: white;
+    padding: 0.5rem 0 0 0.7rem;
+}
+
+.seta1, .seta2{
+    display: flex;
+    background-color: #21325b;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+}
+
+.next{
+    margin-left: -0.1rem;
+}
+
+.item{
+    width: 10.5rem;
+    height: 7rem;
+}
+.swiper-pagination-bullet{
+    background-color: #21325b;
+}
+
+.adentro, .adentro2{
+    width: 1.4rem;
+    height: 1.5rem;
+    cursor: pointer;
+}
+
+#img{
+    width: 6rem;
+    height: 4rem;
+}
+

@@ -1,0 +1,144 @@
+
+#planos {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+   
+}
+.cards{
+    padding: 5rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    width: 95vw;
+    background-image: url('https://images.squarespace-cdn.com/content/v1/5af526957c932741bf200559/1605757594818-V22N3LKKRFG83AQ4NNRX/bg-shapes-test-flipped.png?format=2500w');
+    background-repeat: no-repeat;
+    background-clip: border-box;
+    background-position: center;
+}
+.card{
+    width: 22.3rem;
+    padding: 2rem;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: -10px 0px 13px -7px rgba(206,206,206,0.25), 10px 0px 13px -7px rgba(206,206,206,0.25), 1px 4px 10px -2px rgba(206,206,206,0.25);
+}
+
+.card-titulo{
+    display: flex;
+    justify-content:flex-start;
+    align-items: baseline;
+    flex-direction: row;
+}
+.cifrao{
+    position: absolute;
+    margin-left: -1.5rem;
+    font-size: 1rem;
+}
+
+.card-subtitulo{
+    margin: 0.5rem 0;
+}
+
+
+.card-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 2rem 0;
+}
+
+.card-info  li {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: space-between;
+    padding: 0.3rem 0;
+}
+
+.card-info  li p {
+    margin-left: 1rem;
+}
+
+.btn-plano{
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--Background);
+    background-color: #377dff;
+    text-align: center;
+    vertical-align: middle;
+    border: 0.0625rem solid transparent;
+    padding: 0.6125rem 1rem;
+    font-size: 1rem;
+    border-radius: 0.3125rem;
+    transition: all .2s ease-in-out;
+    width: 100%;
+
+}
+.btn-effect-meio:hover{
+    box-shadow: 0 4px 11px rgba(55,125,255,.35);
+    background-color: #2f6ad9;
+}
+
+.card-meio{
+    position: relative;
+    bottom: 2rem;
+}
+
+.btn-effect{
+    background-color: #fff;
+    color: #377dff;
+}
+.btn-effect:hover{
+    color: #377dff;
+    background-color: rgba(55,125,255,.1);
+}
+
+.card > p {
+    padding-top: 1rem;
+}
+
+.card-meio{
+    position: relative;
+    bottom: 1.5rem;
+}
+
+.descricao_plano {
+    text-align: start!important;;
+}
+
+.circulo {
+    width:8rem;
+    height: 8rem;
+    z-index: -1;
+    position: absolute;
+}
+
+.div-desconto{
+    position: relative;
+}
+
+.texto-desconto {
+    position: absolute;
+    width: 9rem;
+    bottom:2rem;
+    left: 2.6rem;
+    font-size: .9rem;
+    background-color: #377dff;
+    border-radius: 18px;
+    color: #fff;
+    text-align: center;
+    padding: 0.2rem;
+}
+
+.seta-desconto {
+    position: absolute;
+    left: 1rem;
+    bottom: 2rem;
+}

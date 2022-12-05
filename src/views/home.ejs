@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+    integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+    crossorigin="" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.1.0/chartjs-plugin-datalabels.min.js"
+    integrity="sha512-Tfw6etYMUhL4RTki37niav99C6OHwMDB2iBT5S5piyHO+ltK2YX8Hjy9TXxhE1Gm/TmAV0uaykSpnHKFIAif/A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="js/jquery.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+
+<body>
+  <img src="img/loading3.svg" width="200px" class="img_loading" id="img_loading">
+  <main id="container" class="body_loading">
+    <div class="sidebar">
+      <div class="logo-details">
+        <img class="bx bxl-c-plus-plus icon"
+          src="https://www.netsted.co.za/wp-content/uploads/2017/05/cropped-favicon-transparent-1.png" alt=""
+          width="50px">
+        <div class="logo_name">ova</div>
+        <i class='bx bx-menu' id="btn"></i>
+      </div>
+      <ul class="nav-list">
+        <li>
+          <i class='bx bx-search'></i>
+          <input type="text" placeholder="Pesquisar..." id="placeholder">
+          <span class="tooltip">Pesquisar</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class='bx bx-grid-alt'></i>
+            <span class="links_name">Dashboard</span>
+          </a>
+          <span class="tooltip">Dashboard</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class='bx bx-user'></i>
+            <span class="links_name">Usuario</span>
+          </a>
+          <span class="tooltip">Usuario</span>
+        </li>
+
+        <li>
+          <a href="#">
+            <i class='bx bx-cog'></i>
+            <span class="links_name">Configurações</span>
+          </a>
+          <span class="tooltip">Configurações</span>
+        </li>
+        <li class="profile">
+          <div class="profile-details">
+            <!-- <img src="profile.jpg" alt="profileImg"> -->
+            <div class="name_job">
+              <div class="name" id="nome_usuario"></div>
+            </div>
+          </div>
+          <i class='bx bx-log-out' id="log_out"></i>
+        </li>
+      </ul>
+    </div>
+    <section class="home-section">
+      <div class="text">
+        Dashboard
+        <img id="buscaDados"
+          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAAXNSR0IArs4c6QAAAdtJREFUWEftltExRjEQhc9fAR2gAkqgAypABagAFVACHVABHaADKkAH5jOJ2dlJ7m7ueDDjZsbLn0i+e87Jblb6Y2P1x3i0AEWOLAr9O4V2JG1L2ixf/irpRdJzpERvfm6GTiWdGBC/P2A3ki5HwUaBdiVdSUKZzADsYESxESBgHhzFp6RHcyCgrFtz67YkAReOLBAHAbNedgTkQtJ14wTW7Jc5wI6LfSEMC7JAfN1G2ZHQosJHcAJB50PuUiRlUQYIJc6NMsDMuUUoB+Tk/2aArDpD8htlgMFygPamoCIgJH8y6tQMjbhQYerNxOoulAcijBS6OviiI1P0qC11EOxWqC2sh6lzXSgPxAZcYwvVUgOYKEs9mEmolmUR1G/AdKF6GepBZWA4DOttNcf2WjZuXZHEvh/rp0LtobIw3mL2eTc/Tlbt6JZVKMIdZaZ382jE9D/G20RD/l4QAbEmVdA6NL7lnEU3MwPkz6o9LGodHiZUJ6uQBaIOHZY+hhUEtDUIMTbZZpyyfESh1vMDlVrPD1vRhy7DCBBK1O5dr3AvyPV3bKIEpJvxKFA9iBzZ2uLB7ssbaOjpMSdD/mAU488+8rEw9TpsyTtXociq2fMLUCTdotCiUKRANP8FkL9jJX6fK04AAAAASUVORK5CYII=" />
+      </div>
+
+
+      <div class="cards">
+        <div class="cards_reviews card_total">
+          <h3 class="titulo_card titulo_total">Total de avaliações</h3>
+          <div class="div_reviews">
+            <span id="total_avaliacoes">0</span>
+            <img
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAAXNSR0IArs4c6QAAAq9JREFUWEfllsuOTUEUhr9OMNUPIHGZMOm4vAAmpngCTJi5zAnCA2DGBE+AqQleQCQmTFwSD8AUCfmkqrNOnap96uyzJR0qqXTXPlVr/fX/61JrbLGxtsXw8E8A2gMcBY4B/p+nZH8K8yXwKq27hViGobPAmQSk2wEgsEfA455DPYBk4mFiosdma88b4Bzg3+ZYBOgOcKly+lm6ucadX9OedeBQml7kZOWsNq+0EA0BkmYlyuMboDFnBrCIMQFeTnNn2Kxt2ZobLUAlMzJiDPUCKR0JTBCRsbsJ6MzeGiCpfhF2GYyCmWKUrB9P0m/argEydXenHTJzagokwcbTwJS+9kb7JSCdP0kbjBlrzFiZWvdQPoHkmJphqQQUKb0J3KhYPQHcA/alcnCh2HM/BewH4CLwvJFpOXtnQqIEZBGzCjvm9E3f3wH7gxOzxYs4jDVrVh7vgQMVQDFOreau/4wS0K9wuJWB34HtYd814HZaXwVuhd9+ADsa2lV9jQGkJOeTk5/AEeBtWm8Ar4Ftaf0AKCXN+LoAxQw7PFDmlWYXYBZmMNmRoKw3X4KUJUndkvUEdUOBpT7HwjsY1DEoTXdrxN9I+4+A6e84DVibqkHtxyhbs+csxcfs5lgYP5eviFomxeKoqSlBjWodGUTs9N7KejNWPuWxPsU21N1cM8HlbQRjMGqoF5hArMg+QXLMaL/ZsMc80ATjAytX5xghOj0YHmi1xtxqSc2grtUMnecXgL9Ho9YUG3JkoBbzBrAAV3rCRsO1GmXzvb4g4+xVnq0xOnd0kWTxQHRuHCnNZlNMG2XBsqGsJoLN2nX3GAuodCALytEb7E2AUwAaDNJuagYqdctGGS++KGVFWSYbYxmaTKLyJmMATSrRKoCsttaQSSVaBdBkcTJkaBnJ/k9AvwGY45IlGySaRAAAAABJRU5ErkJggg==" />
+          </div>
+        </div>
+        <div class="cards_reviews card_media">
+          <h3 class="titulo_card titulo_media">Média das avaliações</h3>
+          <div class="div_reviews">
+            <span id="media_avaliacoes">0.0</span>
+            <img
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAAXNSR0IArs4c6QAAAoZJREFUWEftl40xJUEQx/8vAkRwROBE4C4CRIAIEAEi4CI4IkAEiAARcBEgAuqnplXrN7Mzu/uqTild9Wrfx27Pb/79Mf0m+mQ2+WQ8+pJAi5Iuk9K/JT2MUX0WCp1I2kwQp5K2/icQ6twHgKUxKo1V6FjSTgD6I2l3qEpjgOaTOly9PUlCJa69bQzQgaT9tOK/dP2RrnuSUK+3jQGimgxgO638N135DZV621AgKskWf5ZkYSNMc4kCSCqwlw0FupW0nFY6lET4MB9G7lnpRSNlO/UvSS+SuJr9dCr496hD6VsCoxThMpX4HjDMv+fzVfr+2kNHhbhptceuco3QN8oWV6xJh3+zCORzoOaMykKtWN6ohCqW8DU/PgengHyymiMaHbuwhQlJ63lFOHlhgOJ/LRB+SP5cUkcodoukgxqdW3w9VaZVJMrwneVSNmT2/Kyhoj9gKBpL+HfurrKPTgjTRs5JJUk4147cPeQeykzB5JI6+o5QhI3wZZ1lwGLF3SVliuFvaYxUEnG23tLa8OJmqjAtCtmmkfgsfUByq5yuaPlQAcPGqtaiEE78kdA6FcbhrWmtppsknbv+0efQ9BMBBYGfTmsF8h08jqiE06qIOcgv6ifKpkmyBYjY36Rt+TZPg2MEAcgbQKjIJnzuNc1ILUC+Wi7SIrHrxjAAAxRwTA5m1T8ALUC+lzD7MAdFVQDF4jkF0IKbIKqjbQuQT8yoBCFEQcsbQNmA9ax4vylcTOwaEHnyWHga58Dkxg+golrmpnPNGpBPSnMYVSnttqRWZ/nXgHxDZOGSKiUoFI5q+Rl86rkaEN3W5hWOgmpjK5Chlv1PY+woDng1oFpjnfnv30A1SV8BwD+LJQdbFB0AAAAASUVORK5CYII=" />
+          </div>
+        </div>
+
+        <div class="cards_reviews card_atualizacao">
+          <h3 class="titulo_card titulo_atualizacao">Ultima Atualização</h3>
+          <div class="div_reviews">
+            <span id="ultima_atualizacao">00:00</span>
+            <img
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAAXNSR0IArs4c6QAAAnpJREFUWEftmNExRkEMhY8KUAEqQAWoABWgAlSAClABKkAHVIAK0AEVMJ/ZNZF/92728mCMvNzhZjfnnpxNsv+UfplN/TI8+jOAliRtSeI5k56QfS/pJT0v0rMrCb0MHUraTSAigQB3Iuko4oxPFNCGpGNJ89GNnd+TpH1JV631EUCwcuA2ek6b30giGKnCSCGgVyXxEXNuHXsNstUCdJ60kvcFCJvy/4htJ38LjLU7tcVDgDwz15IIgC56DNEDYt0sgiX2n7AaIOi+NN6cGMB8xzzbmyVN1QChi0wzzACwZuhlJb28lYSuaoaoM1PEWPCOJUA2VWgGoQ6lyfpXU5ECkz6ATKe/J/xLgAieFyC+loB7AIGD1J8lQMSatSx5QLBxlxxgJ1J3egGxvZXEsq3oHhBVlUqMnUraC6h4DKBqHA8IQWaBFk9BAeAYQPYUcxA4GB/mAVFxF9O7L1QOMDUGkJUGMYlVBPRmAreqeHa1gDjWMBuxYiwfdAwgdEbjzTbYGoxfCNCYlBHDV+EWKJuyBzNPTWhojKgtMwxtEabCoh5z7K1ePFNrlVYSPvaWymKvCag1gxqq8uHCSLze1lHCSF2pNVnbOl79ONxqrnwJNaJ3BqoRSXN9NCBCzZXNLKU9taWVUTt+FHtldEBrHeMWkFJp6BrQ2MCPsHwdQu1NH2li3LBDXvcIW6stpBKgjLQRQ8BUcUBlGxyHI/2qdA0CGIxxktCCvQYx+uZrkJ+nWhNl10WRYubvWRGW8AE0Pe9HLoo2KGyxcR5xW4CoM3xI8cpTWhxJWWkdFR195B8b8gxFo8w/NnAycypbwD/fjwUUDtDr+A+oxdg7vKCZJSqiUPwAAAAASUVORK5CYII=" />
+          </div>
+        </div>
+      </div>
+      <div class="graficos">
+
+        <div class="grafico_todas_avalicacoes">
+          <h2 class="titulo_grafico">Histórico</h2>
+          <canvas id="grafico_todas_avalicacoes"></canvas>
+        </div>
+        <div class="grafico_media">
+          <h2 class="titulo_grafico">Média</h2>
+          <canvas id="grafico_media"></canvas>
+        </div>
+        <div class="comentarios">
+          <h2 class="titulo_avaliacoes">Comentários</h2>
+          <div class="scrollbar" id="scroll">
+          </div>
+        </div>
+
+
+      </div>
+    </section>
+  </main>
+  <script src="js/home.js"></script>
+
+</body>
+
+</html>

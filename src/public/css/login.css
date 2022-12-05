@@ -1,0 +1,108 @@
+.login {
+  position: relative;
+  min-height: 70vh;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0 8rem;
+  margin: 0;
+}
+
+
+/* FORMULÁRIO */
+
+.formulario {
+  gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+
+.input-formulario , .cpf, .tel , label{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: .4rem;  
+  color: #a2b0b8;
+  font-weight: 600;
+  font-size: .7rem;
+}
+
+
+.input-formulario-2{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+input {
+  border: 1px solid #dde4e8;
+  border-radius: 3px;
+  padding: 1rem;
+  width: 100%;
+}
+
+.info {
+  display: flex;
+}
+
+h1 {
+  margin: 1rem 0;
+}
+
+p {
+  font-size: 1.3rem;
+}
+
+p > a {
+  color: #898989;
+}
+
+.pagamento:hover {
+  cursor: pointer;
+}
+
+.pagamento {
+  padding: 1.4rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.card {
+  margin-top: 7rem;
+}
+
+.titulo-informacoes {
+  text-align: center;
+
+  padding: 1rem 0;
+
+  border-bottom: 1.5px solid ;
+  border-color: #c9c9c9;
+
+  width: 100%;
+}
+
+.card-titulo {
+  padding-top: .5rem;
+}
+
+ .divsenha{
+  width: 100%;
+}
+
+.img-login {
+  width: 35%;
+}
+
+.vizualizador {
+  width: 1.5rem;
+  position: relative;
+  bottom: 1.95rem;
+  left: 93%;
+  opacity: 50%;
+  cursor: pointer;
+}
