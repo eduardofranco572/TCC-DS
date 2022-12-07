@@ -1,4 +1,4 @@
-# Tela Login
+# TCC-DS
 Olá, Meu nome é Eduardo e esse foi o projeto do meu TCC do curso Desenvolvimento de Sistemas, foi realizado em um grupo de cinco integrantes,
 e os principais programadores da aplicação foram eu e o Alex Gonçalves. O projeto consiste em um web site para divulgações de empresas, Foi anexado juntamente 
 com o código monografia de tudo.
