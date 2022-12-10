@@ -3,14 +3,6 @@ Olá, Meu nome é Eduardo e esse foi o projeto do meu TCC do curso Desenvolvimen
 e os principais programadores da aplicação foram eu e o Alex Gonçalves. O projeto consiste em um web site para divulgações de empresas, Foi anexado juntamente 
 com o código monografia de tudo.
 <br>
-<br>
- <div align="center">
-    <h1>Site do Projeto:</h1>
-    https://eduardofranco572.github.io//
-   <br>
-        
-</div>
-<br>
   Aqui são umas das linguagens de progamação que tenho conhecimento. e que utilizo para criar meus sites 💻
 <br>
 <div align="center" style="display: inline_block"><br> 
